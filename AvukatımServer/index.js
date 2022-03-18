@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors")
 const lawyerInfoRouter = require("./routers/lawyerInfo")
 const lawyerCommentRouter = require("./routers/lawyerComents")
+const cityRouter = require("./routers/city")
 
 app.use(bodyParser.json());
 app.use(cors()); // Kim bu ip bağlanırsa bağlansın hiç bir hata çıkmayacak
@@ -23,6 +24,7 @@ mongoose.connection.once("open",()=>{
 
 app.use("/",lawyerInfoRouter)
 app.use("/",lawyerCommentRouter)
+app.use("/",cityRouter)
 
 
 // serverın bir portu dinlemi için çalıştırıyoruz
