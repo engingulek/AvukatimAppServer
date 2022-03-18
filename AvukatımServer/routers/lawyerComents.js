@@ -21,7 +21,6 @@ router.post("/lawyerCreateComments",(req,res)=> {
     console.log(req.body)
     const lawyerComment = new LawyerComment({
 
-
     customerId:req.body.customerId,
     lawyerId: req.body.lawyerId,
     comments: req.body.comments,
