@@ -10,8 +10,6 @@ const LawyerInfoSchema = new mongoose.Schema ({
     lawyerEstiOnliHours: {type:String,required:true},
     lawyerDescription: {type:String,required:true},
     lawyerLocCoordinate: {type:String,required:true}
-
-
 })
 
 module.exports = mongoose.model("LawyerInfo",LawyerInfoSchema)
