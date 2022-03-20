@@ -37,7 +37,11 @@ router.post("/lawyerRegister",(req,res)=> {
 
 
 lawyerInfo.save()
-res.json(lawyerInfo)
+res.json({
+    success :0,
+    message:"Success"
+
+})
 })
 
 module.exports = router

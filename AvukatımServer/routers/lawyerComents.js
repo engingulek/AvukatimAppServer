@@ -30,7 +30,11 @@ router.post("/lawyerCreateComments",(req,res)=> {
 
 
 lawyerComment.save()
-res.json(lawyerComment)
+res.json({
+    success :1,
+    message:"Success"
+
+})
 })
 
 module.exports = router
