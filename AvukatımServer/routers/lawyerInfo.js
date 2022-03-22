@@ -22,26 +22,21 @@ router.get("/lawyerInfo",(req,res)=> {
 router.post("/lawyerRegister",(req,res)=> {
     console.log(req.body)
     const lawyerInfo = new LawyerInfo({
-        lawyerImageUrl : req.body.lawyerImageUrl,
-        lawyerName: req.body.lawyerName,
-    lawyerSurname: req.body.lawyerSurname,
+    lawyerImageUrl : req.body.lawyerImageUrl,
+    lawyerNameSurname: req.body.lawyerNameSurname,
     lawyerGender: req.body.lawyerGender,
     lawyerAge: req.body.lawyerAge,
     lawyerProfession: req.body.lawyerProfession,
     lawyerLocation: req.body.lawyerLocation,
     lawyerEstiOnliHours: req.body.lawyerEstiOnliHours,
     lawyerDescription: req.body.lawyerDescription,
-    lawyerLocCoordinate: req.body.lawyerlawyerLocCoordinate,
+    lawyerLocCoordinate: req.body.lawyerLocCoordinate,
 
     })
-
-
 lawyerInfo.save()
 res.json({
-    success :0,
-    message:"Success"
-
+    success :1,
+    message:"success"
 })
 })
-
 module.exports = router

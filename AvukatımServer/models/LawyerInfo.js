@@ -1,15 +1,14 @@
 const mongoose = require('mongoose')
 const LawyerInfoSchema = new mongoose.Schema ({
-    lawyerImageUrl: {type:String},
-    lawyerName: {type:String},
-    lawyerSurname: {type:String},
-    lawyerGender: {type:String},
-    lawyerAge: {type:String},
-    lawyerProfession: {type:Array},
-    lawyerLocation: {type:String},
-    lawyerEstiOnliHours: {type:String},
-    lawyerDescription: {type:String},
-    lawyerLocCoordinate: {type:String}
+    lawyerImageUrl: {type:String,required:true},
+    lawyerNameSurname: {type:String,required:true},
+    lawyerGender: {type:String,required:true},
+    lawyerAge: {type:String,required:true},
+    lawyerProfession: {type:Array,required:true},
+    lawyerLocation: {type:String,required:true},
+    lawyerEstiOnliHours: {type:String,required:true},
+    lawyerDescription: {type:String,required:true},
+    lawyerLocCoordinate: {type:String,required:true}
 })
 
 module.exports = mongoose.model("LawyerInfo",LawyerInfoSchema)
