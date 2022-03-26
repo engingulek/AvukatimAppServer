@@ -22,6 +22,7 @@ router.get("/lawyerInfo",(req,res)=> {
 router.post("/lawyerRegister",(req,res)=> {
     console.log(req.body)
     const lawyerInfo = new LawyerInfo({
+    authUserId: req.body.authUserId,
     lawyerImageUrl : req.body.lawyerImageUrl,
     lawyerNameSurname: req.body.lawyerNameSurname,
     lawyerGender: req.body.lawyerGender,
@@ -38,5 +39,24 @@ res.json({
     success :1,
     message:"success"
 })
+})
+
+
+
+// kullanıcıya ait bilgilerin getirilmesi
+router.get("/:authUserId",(req,res)=>{
+    
+    LawyerInfo.find()
+    .then(lawyerInfo => {
+        var data = lawyerInfo.filter(x => x.authUserId==req.params.authUserId)
+        res.json({
+            lawyerInfos:data,
+            success:1
+        });
+    })
+    .catch(err =>{
+        res.json(err)
+    })
+    
 })
 module.exports = router
