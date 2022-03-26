@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const LawyerInfoSchema = new mongoose.Schema ({
+
     authUserId:{type:String,required:true},
     lawyerImageUrl: {type:String,required:true},
     lawyerNameSurname: {type:String,required:true},

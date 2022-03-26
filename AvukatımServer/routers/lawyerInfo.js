@@ -44,19 +44,35 @@ res.json({
 
 
 // kullanıcıya ait bilgilerin getirilmesi
-router.get("/:authUserId",(req,res)=>{
-    
+router.post("/lawyerInfoAuth",(req,res)=>{
+    //res.json(req.body.authUserId)
+    //console.log(req.body.authUserId)
+    //res.json(req.body.authUserId)
     LawyerInfo.find()
     .then(lawyerInfo => {
-        var data = lawyerInfo.filter(x => x.authUserId==req.params.authUserId)
+        var info = lawyerInfo.filter(x => x.authUserId==req.body.authUserId)
         res.json({
-            lawyerInfos:data,
+            lawyerInfos:info,
             success:1
         });
     })
     .catch(err =>{
         res.json(err)
+    })    
+})
+
+
+router.post("/deleteAdvert",(req,res)=> {
+    console.log(req.body.authUserId)
+    LawyerInfo.findByIdAndDelete(req.body.authUserId)
+    .then((lawyerInfo)=> {
+        res.json({
+            lawyerInfos:lawyerInfo,
+            success:1
+        });
     })
-    
+    .catch(err =>{
+        res.json(err)
+    })   
 })
 module.exports = router
