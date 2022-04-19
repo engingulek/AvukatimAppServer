@@ -15,6 +15,4 @@ router.get("/professions",(req,res)=> {
     })
 })
 
-
-
 module.exports = router

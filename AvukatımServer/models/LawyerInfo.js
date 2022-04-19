@@ -7,10 +7,11 @@ const LawyerInfoSchema = new mongoose.Schema ({
     lawyerGender: {type:String,required:true},
     lawyerAge: {type:String,required:true},
     lawyerProfession: {type:Array,required:true},
-    lawyerLocation: {type:String,required:true},
+    lawyerLocationCity: {type:String,required:true},
+    lawyerLocationCounty: {type:String,required:true},
     lawyerEstiOnliHours: {type:String,required:true},
     lawyerDescription: {type:String,required:true},
-    lawyerLocCoordinate: {type:Array,required:true}
+    lawyerUniversty : {type:String,required:true}
 })
 
 module.exports = mongoose.model("LawyerInfo",LawyerInfoSchema)

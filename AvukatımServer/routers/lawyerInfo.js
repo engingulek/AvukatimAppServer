@@ -28,10 +28,11 @@ router.post("/lawyerRegister",(req,res)=> {
     lawyerGender: req.body.lawyerGender,
     lawyerAge: req.body.lawyerAge,
     lawyerProfession: req.body.lawyerProfession,
-    lawyerLocation: req.body.lawyerLocation,
+    lawyerLocationCity: req.body.lawyerLocationCity,
+    lawyerLocationCounty:req.body.lawyerLocationCounty,
     lawyerEstiOnliHours: req.body.lawyerEstiOnliHours,
     lawyerDescription: req.body.lawyerDescription,
-    lawyerLocCoordinate: req.body.lawyerLocCoordinate,
+    lawyerUniversty : req.body.lawyerUniversty
 
     })
 lawyerInfo.save()
@@ -45,9 +46,6 @@ res.json({
 
 // kullanıcıya ait bilgilerin getirilmesi
 router.post("/lawyerInfoAuth",(req,res)=>{
-    //res.json(req.body.authUserId)
-    //console.log(req.body.authUserId)
-    //res.json(req.body.authUserId)
     LawyerInfo.find()
     .then(lawyerInfo => {
         var info = lawyerInfo.filter(x => x.authUserId==req.body.authUserId)
