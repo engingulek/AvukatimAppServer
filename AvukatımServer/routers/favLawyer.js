@@ -24,17 +24,17 @@ router.get("/favLawyerInfo",(req,res)=> {
 router.post("/favlawyerRegister",(req,res)=> {
     console.log(req.body)
     const favlawyerInfo = new FavLawyerInfo({
-   favauthUserId: req.body.favauthUserId,
-   favlawyerImageUrl : req.body.favlawyerImageUrl,
-    favlawyerNameSurname: req.body.favlawyerNameSurname,
-    favlawyerGender: req.body.favlawyerGender,
-    favlawyerAge: req.body.favlawyerAge,
-    favlawyerProfession: req.body.favlawyerProfession,
-    favlawyerLocationCity: req.body.favlawyerLocationCity,
-    favlawyerLocationCounty:req.body.favlawyerLocationCounty,
-    favlawyerEstiOnliHours: req.body.favlawyerEstiOnliHours,
-    favlawyerDescription: req.body.favlawyerDescription,
-    favlawyerUniversty : req.body.favlawyerUniversty
+        authUserId: req.body.authUserId,
+        lawyerImageUrl : req.body.lawyerImageUrl,
+        lawyerNameSurname: req.body.lawyerNameSurname,
+        lawyerGender: req.body.lawyerGender,
+        lawyerAge: req.body.lawyerAge,
+        lawyerProfession: req.body.lawyerProfession,
+        lawyerLocationCity: req.body.lawyerLocationCity,
+        lawyerLocationCounty:req.body.lawyerLocationCounty,
+        lawyerEstiOnliHours: req.body.lawyerEstiOnliHours,
+        lawyerDescription: req.body.lawyerDescription,
+        lawyerUniversty : req.body.lawyerUniversty
 
     })
 favlawyerInfo.save()
@@ -42,5 +42,20 @@ res.json({
     success :1,
     message:"success"
 })
+})
+
+// favorilerden ilan silme
+router.post("/deletefavAdvert",(req,res)=> {
+    console.log(req.body.authUserId)
+    FavLawyerInfo.findByIdAndDelete(req.body.authUserId)
+    .then((favLawyerInfos)=> {
+        res.json({
+            favLawyerInfos:favLawyerInfos,
+            success:1
+        });
+    })
+    .catch(err =>{
+        res.json(err)
+    })   
 })
 module.exports = router
