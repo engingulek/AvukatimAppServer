@@ -22,6 +22,11 @@ router.post("/addMeeting",(req,res)=>{
     advertId: req.body.advertId,
     date:req.body.date,
     time:req.body.time,
+    lawyerAuthUserId: req.body.lawyerAuthUserId,
+    lawyerNameSurname:req.body.lawyerNameSurname,
+    lawyerImageUrl:req.body.lawyerImageUrl,
+    clientNameSurname:req.body.clientNameSurname,
+    clientImageUrl:req.body.clientImageUrl,
 
     })
 
