@@ -8,7 +8,7 @@ const lawyerCommentRouter = require("./routers/lawyerComents")
 const cityRouter = require("./routers/city")
 const professionRouter = require("./routers/profession")
 const favLawyerInfo = require("./routers/favLawyer")
-
+const meetingRouter = require("./routers/meeting")
 app.use(bodyParser.json());
 app.use(cors()); // Kim bu ip bağlanırsa bağlansın hiç bir hata çıkmayacak
 
@@ -29,6 +29,7 @@ app.use("/",lawyerCommentRouter)
 app.use("/",cityRouter)
 app.use("/",professionRouter)
 app.use("/",favLawyerInfo)
+app.use("/",meetingRouter)
 
 
 // serverın bir portu dinlemi için çalıştırıyoruz
