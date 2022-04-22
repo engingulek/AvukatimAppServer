@@ -18,6 +18,8 @@ router.get("/lawyerInfo",(req,res)=> {
 })
 
 
+
+
 // avukatların kayıt olmasını sağlamaktadır. 
 router.post("/lawyerRegister",(req,res)=> {
     console.log(req.body)
